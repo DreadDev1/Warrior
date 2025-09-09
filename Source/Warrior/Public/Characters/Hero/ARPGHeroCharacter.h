@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Characters/AARPGBaseCharacter.h"
+#include "Characters/ARPGBaseCharacter.h"
 #include "ARPGHeroCharacter.generated.h"
 
 class USpringArmComponent;
@@ -15,7 +15,7 @@ struct FInputActionValue;
 
 
 UCLASS()
-class WARRIOR_API AARPGHeroCharacter : public AAARPGBaseCharacter
+class WARRIOR_API AARPGHeroCharacter : public ARPGBaseCharacter
 {
 	GENERATED_BODY()
 
@@ -23,6 +23,10 @@ public:
 	AARPGHeroCharacter();
 
 protected:
+	//~ Begin APawn Interface.
+	virtual void PossessedBy(AController* NewController) override;
+	//~ End APawn Interface
+	
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void BeginPlay() override;
 
@@ -38,7 +42,7 @@ private:
 
 #pragma endregion
 
-#pragma region Inputs
+#pragma region Input Actions
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "CharacterData", meta = (AllowPrivateAccess = "true"))
 	UDataAsset_InputConfig* InputConfigDataAsset;

@@ -10,6 +10,7 @@
 #include "DataAssets/Input/DataAsset_InputConfig.h"
 #include "Components/Input/AARPGInputComponent.h"
 #include "AARPGGameplayTags.h"
+#include "Game/AbilitySystem/ARPGAbilitySystemComponent.h"
 
 #include "AARPGDebugHelper.h"
 
@@ -37,6 +38,24 @@ AARPGHeroCharacter::AARPGHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
+void AARPGHeroCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
+void AARPGHeroCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	if (ARPGAbilitySystemComponent && ARPGAttributeSet)
+	{	
+		const FString ASCText = FString::Printf(TEXT("Owner Actor: %s, AvatarActor: %s"),*ARPGAbilitySystemComponent->GetOwnerActor()->GetActorLabel(),*ARPGAbilitySystemComponent->GetAvatarActor()->GetActorLabel());
+		
+		Debug::Print(TEXT("Ability system component valid. ") + ASCText,FColor::Green);
+		Debug::Print(TEXT("AttributeSet valid. ") + ASCText,FColor::Green);
+	}
+}
+
 void AARPGHeroCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	checkf(InputConfigDataAsset,TEXT("Forgot to assign a valid data asset as input config"));
@@ -55,14 +74,7 @@ void AARPGHeroCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	AARPGInputComponent->BindNativeInputAction(InputConfigDataAsset,AARPGGamePlayTags::InputTag_Look,ETriggerEvent::Triggered,this,&ThisClass::Input_Look);
 }
 
-void AARPGHeroCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-
-	Debug::Print(TEXT("Working"));
-	
-}
-
+#pragma region Input Actions
 void AARPGHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
@@ -98,3 +110,4 @@ void AARPGHeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
+#pragma endregion
