@@ -1,11 +1,11 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "AnimInstances/Hero/AARPGHeroAnimInstance.h"
+#include "AnimInstances/Hero/ARPGHeroAnimInstance.h"
 
 #include "Characters/Hero/ARPGHeroCharacter.h"
 
-void UAARPGHeroAnimInstance::NativeInitializeAnimation()
+void UARPGHeroAnimInstance::NativeInitializeAnimation()
 {
 	Super::NativeInitializeAnimation();
 	
@@ -15,7 +15,7 @@ void UAARPGHeroAnimInstance::NativeInitializeAnimation()
 	}
 }
 
-void UAARPGHeroAnimInstance::NativeThreadSafeUpdateAnimation(float DeltaSeconds)
+void UARPGHeroAnimInstance::NativeThreadSafeUpdateAnimation(float DeltaSeconds)
 {
 	Super::NativeThreadSafeUpdateAnimation(DeltaSeconds);
 

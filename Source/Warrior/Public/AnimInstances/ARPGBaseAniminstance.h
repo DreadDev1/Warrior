@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
-#include "AARPGBaseAniminstance.generated.h"
+#include "ARPGBaseAniminstance.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class WARRIOR_API UAARPGBaseAniminstance : public UAnimInstance
+class WARRIOR_API UARPGBaseAniminstance : public UAnimInstance
 {
 	GENERATED_BODY()
 };

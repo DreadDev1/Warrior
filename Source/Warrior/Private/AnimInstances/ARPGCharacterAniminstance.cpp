@@ -1,13 +1,13 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "AnimInstances/AARPGCharacterAniminstance.h"
-#include "Characters/AARPGBaseCharacter.h"
+#include "AnimInstances/ARPGCharacterAniminstance.h"
+#include "Characters/ARPGBaseCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
-void UAARPGCharacterAniminstance::NativeInitializeAnimation()
+void UARPGCharacterAniminstance::NativeInitializeAnimation()
 {
-	OwningCharacter = Cast<AAARPGBaseCharacter>(TryGetPawnOwner());
+	OwningCharacter = Cast<ARPGBaseCharacter>(TryGetPawnOwner());
 
 	if (OwningCharacter)
 	{
@@ -15,7 +15,7 @@ void UAARPGCharacterAniminstance::NativeInitializeAnimation()
 	}
 }
 
-void UAARPGCharacterAniminstance::NativeThreadSafeUpdateAnimation(float DeltaSeconds)
+void UARPGCharacterAniminstance::NativeThreadSafeUpdateAnimation(float DeltaSeconds)
 {
 	if (!OwningCharacter || !OwningMovementComponent)
 	{

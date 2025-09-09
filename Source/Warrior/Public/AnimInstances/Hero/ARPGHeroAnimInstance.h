@@ -3,15 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AnimInstances/AARPGCharacterAniminstance.h"
-#include "AARPGHeroAnimInstance.generated.h"
+#include "AnimInstances/ARPGCharacterAniminstance.h"
+#include "ARPGHeroAnimInstance.generated.h"
 
 class AARPGHeroCharacter;
 /**
  * 
  */
 UCLASS()
-class WARRIOR_API UAARPGHeroAnimInstance : public UAARPGCharacterAniminstance
+class WARRIOR_API UARPGHeroAnimInstance : public UARPGCharacterAniminstance
 {
 	GENERATED_BODY()
 
