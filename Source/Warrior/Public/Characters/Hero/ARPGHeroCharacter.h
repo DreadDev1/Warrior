@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Characters/AARPGBaseCharacter.h"
-#include "AARPGHeroCharacter.generated.h"
+#include "ARPGHeroCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
@@ -15,12 +15,12 @@ struct FInputActionValue;
 
 
 UCLASS()
-class WARRIOR_API AAARPGHeroCharacter : public AAARPGBaseCharacter
+class WARRIOR_API AARPGHeroCharacter : public AAARPGBaseCharacter
 {
 	GENERATED_BODY()
 
 public:
-	AAARPGHeroCharacter();
+	AARPGHeroCharacter();
 
 protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

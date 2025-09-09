@@ -1,7 +1,7 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Characters/Hero/AARPGHeroCharacter.h"
+#include "Characters/Hero/ARPGHeroCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
@@ -13,7 +13,7 @@
 
 #include "AARPGDebugHelper.h"
 
-AAARPGHeroCharacter::AAARPGHeroCharacter()
+AARPGHeroCharacter::AARPGHeroCharacter()
 {
 	GetCapsuleComponent()->InitCapsuleSize(42.f,96.f);
 
@@ -37,7 +37,7 @@ AAARPGHeroCharacter::AAARPGHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
-void AAARPGHeroCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+void AARPGHeroCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	checkf(InputConfigDataAsset,TEXT("Forgot to assign a valid data asset as input config"));
 
@@ -55,7 +55,7 @@ void AAARPGHeroCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	AARPGInputComponent->BindNativeInputAction(InputConfigDataAsset,AARPGGamePlayTags::InputTag_Look,ETriggerEvent::Triggered,this,&ThisClass::Input_Look);
 }
 
-void AAARPGHeroCharacter::BeginPlay()
+void AARPGHeroCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
@@ -63,7 +63,7 @@ void AAARPGHeroCharacter::BeginPlay()
 	
 }
 
-void AAARPGHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
+void AARPGHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
 
@@ -84,7 +84,7 @@ void AAARPGHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 	}
 }
 
-void AAARPGHeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
+void AARPGHeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
 {
 	const FVector2D LookAxisVector = InputActionValue.Get<FVector2D>();
 	
