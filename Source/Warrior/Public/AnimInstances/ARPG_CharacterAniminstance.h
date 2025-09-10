@@ -3,16 +3,16 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ARPGBaseAniminstance.h"
-#include "ARPGCharacterAniminstance.generated.h"
+#include "ARPG_BaseAniminstance.h"
+#include "ARPG_CharacterAniminstance.generated.h"
 
-class ARPGBaseCharacter;
+class ARPG_BaseCharacter;
 class UCharacterMovementComponent;
 /**
  * 
  */
 UCLASS()
-class WARRIOR_API UARPGCharacterAniminstance : public UARPGBaseAniminstance
+class WARRIOR_API UARPG_CharacterAniminstance : public UARPG_BaseAniminstance
 {
 	GENERATED_BODY()
 	
@@ -22,7 +22,7 @@ public:
 
 protected:
 	UPROPERTY()
-	ARPGBaseCharacter* OwningCharacter;
+	ARPG_BaseCharacter* OwningCharacter;
 
 	UPROPERTY()
 	UCharacterMovementComponent* OwningMovementComponent;

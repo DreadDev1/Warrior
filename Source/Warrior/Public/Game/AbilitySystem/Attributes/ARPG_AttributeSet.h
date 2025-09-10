@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "AttributeSet.h"
-#include "ARPGAttributeSet.generated.h"
+#include "ARPG_AttributeSet.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class WARRIOR_API UARPGAttributeSet : public UAttributeSet
+class WARRIOR_API UARPG_AttributeSet : public UAttributeSet
 {
 	GENERATED_BODY()
 	

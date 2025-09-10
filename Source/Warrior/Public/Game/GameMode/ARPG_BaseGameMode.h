@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AbilitySystemComponent.h"
-#include "ARPGAbilitySystemComponent.generated.h"
+#include "GameFramework/GameModeBase.h"
+#include "ARPG_BaseGameMode.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class WARRIOR_API UARPGAbilitySystemComponent : public UAbilitySystemComponent
+class WARRIOR_API AARPG_BaseGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	

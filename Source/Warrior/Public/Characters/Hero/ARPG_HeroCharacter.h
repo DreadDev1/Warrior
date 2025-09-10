@@ -3,8 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Characters/ARPGBaseCharacter.h"
-#include "ARPGHeroCharacter.generated.h"
+#include "Characters/ARPG_BaseCharacter.h"
+#include "ARPG_HeroCharacter.generated.h"
 
 class USpringArmComponent;
 class UCameraComponent;
@@ -15,12 +15,12 @@ struct FInputActionValue;
 
 
 UCLASS()
-class WARRIOR_API AARPGHeroCharacter : public ARPGBaseCharacter
+class WARRIOR_API ARPG_HeroCharacter : public ARPG_BaseCharacter
 {
 	GENERATED_BODY()
 
 public:
-	AARPGHeroCharacter();
+	ARPG_HeroCharacter();
 
 protected:
 	//~ Begin APawn Interface.

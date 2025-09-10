@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
-#include "AARPGHeroController.generated.h"
+#include "ARPG_HeroController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class WARRIOR_API AAARPGHeroController : public APlayerController
+class WARRIOR_API AARPG_HeroController : public APlayerController
 {
 	GENERATED_BODY()
 };

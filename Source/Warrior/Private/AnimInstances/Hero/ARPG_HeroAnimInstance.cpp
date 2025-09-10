@@ -1,21 +1,21 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "AnimInstances/Hero/ARPGHeroAnimInstance.h"
+#include "AnimInstances/Hero/ARPG_HeroAnimInstance.h"
 
-#include "Characters/Hero/ARPGHeroCharacter.h"
+#include "Characters/Hero/ARPG_HeroCharacter.h"
 
-void UARPGHeroAnimInstance::NativeInitializeAnimation()
+void UARPG_HeroAnimInstance::NativeInitializeAnimation()
 {
 	Super::NativeInitializeAnimation();
 	
 	if (OwningCharacter)
 	{
-		OwningHeroCharacter = Cast<AARPGHeroCharacter>(OwningCharacter);
+		OwningHeroCharacter = Cast<ARPG_HeroCharacter>(OwningCharacter);
 	}
 }
 
-void UARPGHeroAnimInstance::NativeThreadSafeUpdateAnimation(float DeltaSeconds)
+void UARPG_HeroAnimInstance::NativeThreadSafeUpdateAnimation(float DeltaSeconds)
 {
 	Super::NativeThreadSafeUpdateAnimation(DeltaSeconds);
 

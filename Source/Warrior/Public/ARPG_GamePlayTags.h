@@ -4,7 +4,7 @@
 
 #include "NativeGameplayTags.h"
 
-namespace AARPGGamePlayTags
+namespace ARPGGamePlayTags
 {
 	/** Input Tags **/
 	WARRIOR_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Move)

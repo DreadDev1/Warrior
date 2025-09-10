@@ -5,13 +5,13 @@
 #include "CoreMinimal.h"
 #include "EnhancedInputComponent.h"
 #include "DataAssets/Input/DataAsset_InputConfig.h"
-#include "AARPGInputComponent.generated.h"
+#include "ARPG_InputComponent.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class WARRIOR_API UAARPGInputComponent : public UEnhancedInputComponent
+class WARRIOR_API UARPG_InputComponent : public UEnhancedInputComponent
 {
 	GENERATED_BODY()
 
@@ -21,7 +21,7 @@ public:
 };
 
 template<class UserObject, typename CallbackFunc>
-inline void UAARPGInputComponent::BindNativeInputAction(const UDataAsset_InputConfig* InInputConfig, const FGameplayTag& InInputTag, ETriggerEvent TriggerEvent, UserObject* ContextObject, CallbackFunc Func)
+inline void UARPG_InputComponent::BindNativeInputAction(const UDataAsset_InputConfig* InInputConfig, const FGameplayTag& InInputTag, ETriggerEvent TriggerEvent, UserObject* ContextObject, CallbackFunc Func)
 {
 	checkf(InInputConfig,TEXT("Input config data asset is null,can not proceed with binding"));
 

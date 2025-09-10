@@ -5,19 +5,19 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
-#include "ARPGBaseCharacter.generated.h"
+#include "ARPG_BaseCharacter.generated.h"
 
 
-class UARPGAbilitySystemComponent;
-class UARPGAttributeSet;
+class UARPG_AbilitySystemComponent;
+class UARPG_AttributeSet;
 
 UCLASS()
-class WARRIOR_API ARPGBaseCharacter : public ACharacter, public IAbilitySystemInterface
+class WARRIOR_API ARPG_BaseCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
 public:
-	ARPGBaseCharacter();
+	ARPG_BaseCharacter();
 	
 	//~ Begin IAbilitySystemInterface Interface.
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
@@ -29,15 +29,15 @@ protected:
 	//~ End APawn Interface
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AbilitySystem")
-	UARPGAbilitySystemComponent* ARPGAbilitySystemComponent;
+	UARPG_AbilitySystemComponent* ARPGAbilitySystemComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AbilitySystem")
-	UARPGAttributeSet* ARPGAttributeSet;
+	UARPG_AttributeSet* ARPGAttributeSet;
 
 public:
-	FORCEINLINE UARPGAbilitySystemComponent* GetARPGAbilitySystemComponent() const {return ARPGAbilitySystemComponent;}
+	FORCEINLINE UARPG_AbilitySystemComponent* GetARPGAbilitySystemComponent() const {return ARPGAbilitySystemComponent;}
 
-	FORCEINLINE UARPGAttributeSet* GetARPGAttributeSet() const {return ARPGAttributeSet;}
+	FORCEINLINE UARPG_AttributeSet* GetARPGAttributeSet() const {return ARPGAttributeSet;}
 
 
 };

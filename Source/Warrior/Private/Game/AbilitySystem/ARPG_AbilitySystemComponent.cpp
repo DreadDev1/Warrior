@@ -1,5 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Components/Input/AARPGInputComponent.h"
+#include "Game/AbilitySystem/ARPG_AbilitySystemComponent.h"
 

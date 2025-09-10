@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "AARPGGamePlayTags.h"
+#include "ARPG_GamePlayTags.h"
 
-namespace AARPGGamePlayTags
+namespace ARPGGamePlayTags
 {
 	/** Input Tags **/
 	UE_DEFINE_GAMEPLAY_TAG(InputTag_Move, "InputTag.Move")

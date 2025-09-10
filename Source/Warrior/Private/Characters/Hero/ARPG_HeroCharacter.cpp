@@ -1,20 +1,20 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Characters/Hero/ARPGHeroCharacter.h"
+#include "Characters/Hero/ARPG_HeroCharacter.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "DataAssets/Input/DataAsset_InputConfig.h"
-#include "Components/Input/AARPGInputComponent.h"
-#include "AARPGGameplayTags.h"
-#include "Game/AbilitySystem/ARPGAbilitySystemComponent.h"
+#include "Components/Input/ARPG_InputComponent.h"
+#include "ARPG_GamePlayTags.h"
+#include "Game/AbilitySystem/ARPG_AbilitySystemComponent.h"
 
-#include "AARPGDebugHelper.h"
+#include "ARPG_DebugHelper.h"
 
-AARPGHeroCharacter::AARPGHeroCharacter()
+ARPG_HeroCharacter::ARPG_HeroCharacter()
 {
 	GetCapsuleComponent()->InitCapsuleSize(42.f,96.f);
 
@@ -38,12 +38,12 @@ AARPGHeroCharacter::AARPGHeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
-void AARPGHeroCharacter::BeginPlay()
+void ARPG_HeroCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
-void AARPGHeroCharacter::PossessedBy(AController* NewController)
+void ARPG_HeroCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
@@ -56,7 +56,7 @@ void AARPGHeroCharacter::PossessedBy(AController* NewController)
 	}
 }
 
-void AARPGHeroCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+void ARPG_HeroCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	checkf(InputConfigDataAsset,TEXT("Forgot to assign a valid data asset as input config"));
 
@@ -68,14 +68,14 @@ void AARPGHeroCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 
 	Subsystem->AddMappingContext(InputConfigDataAsset->DefaultMappingContext,0);
 
-	UAARPGInputComponent* AARPGInputComponent = CastChecked<UAARPGInputComponent>(PlayerInputComponent);
+	UARPG_InputComponent* ARPGInputComponent = CastChecked<UARPG_InputComponent>(PlayerInputComponent);
 
-	AARPGInputComponent->BindNativeInputAction(InputConfigDataAsset,AARPGGamePlayTags::InputTag_Move,ETriggerEvent::Triggered,this,&ThisClass::Input_Move);
-	AARPGInputComponent->BindNativeInputAction(InputConfigDataAsset,AARPGGamePlayTags::InputTag_Look,ETriggerEvent::Triggered,this,&ThisClass::Input_Look);
+	ARPGInputComponent->BindNativeInputAction(InputConfigDataAsset,ARPGGamePlayTags::InputTag_Move,ETriggerEvent::Triggered,this,&ThisClass::Input_Move);
+	ARPGInputComponent->BindNativeInputAction(InputConfigDataAsset,ARPGGamePlayTags::InputTag_Look,ETriggerEvent::Triggered,this,&ThisClass::Input_Look);
 }
 
 #pragma region Input Actions
-void AARPGHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
+void ARPG_HeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
 
@@ -96,7 +96,7 @@ void AARPGHeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 	}
 }
 
-void AARPGHeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
+void ARPG_HeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
 {
 	const FVector2D LookAxisVector = InputActionValue.Get<FVector2D>();
 	
