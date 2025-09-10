@@ -7,7 +7,7 @@
 
 void UARPG_CharacterAniminstance::NativeInitializeAnimation()
 {
-	OwningCharacter = Cast<ARPG_BaseCharacter>(TryGetPawnOwner());
+	OwningCharacter = Cast<AARPG_BaseCharacter>(TryGetPawnOwner());
 
 	if (OwningCharacter)
 	{

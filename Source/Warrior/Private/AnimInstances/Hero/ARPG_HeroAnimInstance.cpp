@@ -11,7 +11,7 @@ void UARPG_HeroAnimInstance::NativeInitializeAnimation()
 	
 	if (OwningCharacter)
 	{
-		OwningHeroCharacter = Cast<ARPG_HeroCharacter>(OwningCharacter);
+		OwningHeroCharacter = Cast<AARPG_HeroCharacter>(OwningCharacter);
 	}
 }
 

@@ -15,12 +15,12 @@ struct FInputActionValue;
 
 
 UCLASS()
-class WARRIOR_API ARPG_HeroCharacter : public ARPG_BaseCharacter
+class WARRIOR_API AARPG_HeroCharacter : public AARPG_BaseCharacter
 {
 	GENERATED_BODY()
 
 public:
-	ARPG_HeroCharacter();
+	AARPG_HeroCharacter();
 
 protected:
 	//~ Begin APawn Interface.

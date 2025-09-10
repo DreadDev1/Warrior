@@ -6,7 +6,7 @@
 #include "ARPG_BaseAniminstance.h"
 #include "ARPG_CharacterAniminstance.generated.h"
 
-class ARPG_BaseCharacter;
+class AARPG_BaseCharacter;
 class UCharacterMovementComponent;
 /**
  * 
@@ -22,7 +22,7 @@ public:
 
 protected:
 	UPROPERTY()
-	ARPG_BaseCharacter* OwningCharacter;
+	AARPG_BaseCharacter* OwningCharacter;
 
 	UPROPERTY()
 	UCharacterMovementComponent* OwningMovementComponent;

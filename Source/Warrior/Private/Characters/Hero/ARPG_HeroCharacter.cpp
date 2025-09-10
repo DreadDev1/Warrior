@@ -14,7 +14,7 @@
 
 #include "ARPG_DebugHelper.h"
 
-ARPG_HeroCharacter::ARPG_HeroCharacter()
+AARPG_HeroCharacter::AARPG_HeroCharacter()
 {
 	GetCapsuleComponent()->InitCapsuleSize(42.f,96.f);
 
@@ -38,12 +38,12 @@ ARPG_HeroCharacter::ARPG_HeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
-void ARPG_HeroCharacter::BeginPlay()
+void AARPG_HeroCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 }
 
-void ARPG_HeroCharacter::PossessedBy(AController* NewController)
+void AARPG_HeroCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
@@ -56,7 +56,7 @@ void ARPG_HeroCharacter::PossessedBy(AController* NewController)
 	}
 }
 
-void ARPG_HeroCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
+void AARPG_HeroCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
 	checkf(InputConfigDataAsset,TEXT("Forgot to assign a valid data asset as input config"));
 
@@ -75,7 +75,7 @@ void ARPG_HeroCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 }
 
 #pragma region Input Actions
-void ARPG_HeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
+void AARPG_HeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
 
@@ -96,7 +96,7 @@ void ARPG_HeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 	}
 }
 
-void ARPG_HeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
+void AARPG_HeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
 {
 	const FVector2D LookAxisVector = InputActionValue.Get<FVector2D>();
 	

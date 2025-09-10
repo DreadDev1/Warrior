@@ -12,12 +12,12 @@ class UARPG_AbilitySystemComponent;
 class UARPG_AttributeSet;
 
 UCLASS()
-class WARRIOR_API ARPG_BaseCharacter : public ACharacter, public IAbilitySystemInterface
+class WARRIOR_API AARPG_BaseCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
 public:
-	ARPG_BaseCharacter();
+	AARPG_BaseCharacter();
 	
 	//~ Begin IAbilitySystemInterface Interface.
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;

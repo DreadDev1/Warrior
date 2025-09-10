@@ -7,7 +7,7 @@
 #include "Game/AbilitySystem/Attributes/ARPG_AttributeSet.h"
 
 // Sets default values
-ARPG_BaseCharacter::ARPG_BaseCharacter()
+AARPG_BaseCharacter::AARPG_BaseCharacter()
 {
 	PrimaryActorTick.bCanEverTick = false;
 	PrimaryActorTick.bStartWithTickEnabled = false;
@@ -19,12 +19,12 @@ ARPG_BaseCharacter::ARPG_BaseCharacter()
 	ARPGAttributeSet = CreateDefaultSubobject<UARPG_AttributeSet>(TEXT("ARPGAttributeSet"));
 }
 
-UAbilitySystemComponent* ARPG_BaseCharacter::GetAbilitySystemComponent() const
+UAbilitySystemComponent* AARPG_BaseCharacter::GetAbilitySystemComponent() const
 {
 	return GetARPGAbilitySystemComponent();
 }
 
-void ARPG_BaseCharacter::PossessedBy(AController* NewController)
+void AARPG_BaseCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 

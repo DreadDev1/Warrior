@@ -6,7 +6,7 @@
 #include "AnimInstances/ARPG_CharacterAniminstance.h"
 #include "ARPG_HeroAnimInstance.generated.h"
 
-class ARPG_HeroCharacter;
+class AARPG_HeroCharacter;
 /**
  * 
  */
@@ -21,7 +21,7 @@ public:
 
 protected:
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "AnimData|Refrences")
-	ARPG_HeroCharacter* OwningHeroCharacter;
+	AARPG_HeroCharacter* OwningHeroCharacter;
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "AnimData|LocomotionData")
 	bool bShouldEnterRelaxState;
