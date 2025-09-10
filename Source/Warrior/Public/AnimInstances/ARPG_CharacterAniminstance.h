@@ -18,7 +18,7 @@ class WARRIOR_API UARPG_CharacterAniminstance : public UARPG_BaseAniminstance
 	
 public:
 	virtual void NativeInitializeAnimation() override;
-	virtual void NativeThreadSafeUpdateAnimation(float DeltaSeconds);
+	virtual void NativeThreadSafeUpdateAnimation(float DeltaSeconds) override;
 
 protected:
 	UPROPERTY()
