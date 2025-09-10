@@ -14,7 +14,7 @@ AARPG_BaseCharacter::AARPG_BaseCharacter()
 
 	GetMesh()->bReceivesDecals = false;
 
-	ARPGAbilitySystemComponent = CreateDefaultSubobject<UARPG_AbilitySystemComponent>(TEXT("ARPGAbilitySystemComponent"));
+	ARPG_AbilitySystemComponent = CreateDefaultSubobject<UARPG_AbilitySystemComponent>(TEXT("ARPGAbilitySystemComponent"));
 
 	ARPGAttributeSet = CreateDefaultSubobject<UARPG_AttributeSet>(TEXT("ARPGAttributeSet"));
 }
@@ -28,8 +28,10 @@ void AARPG_BaseCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	if (ARPGAbilitySystemComponent)
+	if (ARPG_AbilitySystemComponent)
 	{
-		ARPGAbilitySystemComponent->InitAbilityActorInfo(this,this);
+		ARPG_AbilitySystemComponent->InitAbilityActorInfo(this,this);
+
+		ensureMsgf(!CharacterStartUpData.IsNull(),TEXT("Forgot to assign start up data to %s"),*GetName());
 	}
 }

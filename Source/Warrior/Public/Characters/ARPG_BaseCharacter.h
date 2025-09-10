@@ -7,9 +7,9 @@
 #include "AbilitySystemInterface.h"
 #include "ARPG_BaseCharacter.generated.h"
 
-
 class UARPG_AbilitySystemComponent;
 class UARPG_AttributeSet;
+class UDataAsset_StartUpDataBase;
 
 UCLASS()
 class WARRIOR_API AARPG_BaseCharacter : public ACharacter, public IAbilitySystemInterface
@@ -29,13 +29,16 @@ protected:
 	//~ End APawn Interface
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AbilitySystem")
-	UARPG_AbilitySystemComponent* ARPGAbilitySystemComponent;
+	UARPG_AbilitySystemComponent* ARPG_AbilitySystemComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "AbilitySystem")
 	UARPG_AttributeSet* ARPGAttributeSet;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "CharacterData")
+	TSoftObjectPtr<UDataAsset_StartUpDataBase> CharacterStartUpData;
+
 public:
-	FORCEINLINE UARPG_AbilitySystemComponent* GetARPGAbilitySystemComponent() const {return ARPGAbilitySystemComponent;}
+	FORCEINLINE UARPG_AbilitySystemComponent* GetARPGAbilitySystemComponent() const {return ARPG_AbilitySystemComponent;}
 
 	FORCEINLINE UARPG_AttributeSet* GetARPGAttributeSet() const {return ARPGAttributeSet;}
 

@@ -11,6 +11,7 @@
 #include "Components/Input/ARPG_InputComponent.h"
 #include "ARPG_GamePlayTags.h"
 #include "Game/AbilitySystem/ARPG_AbilitySystemComponent.h"
+#include "DataAssets/StartUpData/DataAsset_StartUpDataBase.h"
 
 #include "ARPG_DebugHelper.h"
 
@@ -38,21 +39,16 @@ AARPG_HeroCharacter::AARPG_HeroCharacter()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 }
 
-void AARPG_HeroCharacter::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
 void AARPG_HeroCharacter::PossessedBy(AController* NewController)
 {
 	Super::PossessedBy(NewController);
 
-	if (ARPGAbilitySystemComponent && ARPGAttributeSet)
-	{	
-		const FString ASCText = FString::Printf(TEXT("Owner Actor: %s, AvatarActor: %s"),*ARPGAbilitySystemComponent->GetOwnerActor()->GetActorLabel(),*ARPGAbilitySystemComponent->GetAvatarActor()->GetActorLabel());
-		
-		Debug::Print(TEXT("Ability system component valid. ") + ASCText,FColor::Green);
-		Debug::Print(TEXT("AttributeSet valid. ") + ASCText,FColor::Green);
+	if (!CharacterStartUpData.IsNull())
+	{
+		if (UDataAsset_StartUpDataBase* LoadedData = CharacterStartUpData.LoadSynchronous())
+		{
+			LoadedData->GiveToAbilitySystemComponent(ARPG_AbilitySystemComponent);
+		}
 	}
 }
 
@@ -74,7 +70,11 @@ void AARPG_HeroCharacter::SetupPlayerInputComponent(class UInputComponent* Playe
 	ARPGInputComponent->BindNativeInputAction(InputConfigDataAsset,ARPGGamePlayTags::InputTag_Look,ETriggerEvent::Triggered,this,&ThisClass::Input_Look);
 }
 
-#pragma region Input Actions
+void AARPG_HeroCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+}
+
 void AARPG_HeroCharacter::Input_Move(const FInputActionValue& InputActionValue)
 {
 	const FVector2D MovementVector = InputActionValue.Get<FVector2D>();
@@ -110,4 +110,3 @@ void AARPG_HeroCharacter::Input_Look(const FInputActionValue& InputActionValue)
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
 }
-#pragma endregion
