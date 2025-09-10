@@ -11,7 +11,7 @@
 #include "Components/Input/ARPG_InputComponent.h"
 #include "ARPG_GamePlayTags.h"
 #include "Game/AbilitySystem/ARPG_AbilitySystemComponent.h"
-#include "DataAssets/StartUpData/DataAsset_StartUpDataBase.h"
+#include "DataAssets/StartUpData/DataAsset_HeroStartUpData.h"
 
 #include "ARPG_DebugHelper.h"
 
